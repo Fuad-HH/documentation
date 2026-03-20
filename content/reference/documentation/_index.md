@@ -4,6 +4,9 @@ description: "Material on how to set up documentation for your project"
 weight: 1
 ---
 
+# Minimum Documentation Standard
+[One Good Tutorial](https://onegoodtutorial.org/) provides a great framework and checklist for creating effective minimal documentation. It also recommends tools and best practices for writing clear, concise documentation.
+
 # Setting Up Documentation for SCOREC Projects
 
 This guide walks you through creating documentation for your SCOREC project.
