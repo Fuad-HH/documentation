@@ -51,3 +51,7 @@ spack load hpctoolkit
 ## SCOREC Machines
 - Though Web Interface of Blue and Orange Portals.
 - Through aperture machines. See instructions [here](https://laces-lab.github.io/documentation/faqs/connec_aperture/).
+
+# IDE
+## CLion
+JetBrains C/C++ IDE. See the guide on [configuring CLion's CMake with Spack environments, modules, or custom shell setups]({{< ref "Tools/clion/index.md" >}}).
