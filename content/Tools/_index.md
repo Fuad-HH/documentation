@@ -54,4 +54,4 @@ spack load hpctoolkit
 
 # IDE
 ## CLion
-JetBrains C/C++ IDE. See the guide on [configuring CLion's CMake with Spack environments, modules, or custom shell setups]({{< ref "Tools/clion" >}}).
+JetBrains C/C++ IDE. See the guide on [configuring CLion's CMake with Spack environments, modules, or custom shell setups]({{< ref "Tools/clion/index.md" >}}).
