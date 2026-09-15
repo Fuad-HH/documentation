@@ -25,3 +25,24 @@ PCMS has been demonstrated to couple XGC and Degas2 and it enabled them to use t
 It is designed to work with different Monte Carlo particle transport codes. It is recently demonstrated to work with OpenMC ([draft paper](https://doi.org/10.48550/arXiv.2504.19048)).
 To install OpenMC with PUMI-Tally, use this workflow: [Installation and Usage of PUMI-Tally with OpenMC](https://gist.github.com/Fuad-HH/bf16253e70ae0122800f2128b9fd4a8f).
 
+### OpenMC Geometry Concepts
+OpenMC uses geometry in two distinct ways:
+
+1. **Transport Geometry** — defines the physical domain for particle transport, including material assignments and boundary conditions. This can be specified in either **CSG** (Constructive Solid Geometry) or **DAGMC** format.
+2. **Mesh Tally Filter** — a volume mesh used as a filter for tallying quantities over spatial regions. Unlike transport geometry, the tally mesh filter does not require material information.
+
+These two are fundamentally different: the DAGMC transport geometry (`.h5m`) is a **surface mesh**, whereas the tally mesh filter is a **volume mesh** (confusingly has the same file extension `.h5m`). For more details, see the [OpenMC documentation on CAD-based geometries](https://docs.openmc.org/en/stable/usersguide/geometry.html#using-cad-based-geometry).
+
+### Preparing CAD Geometry for DAGMC Neutron Transport
+[DAGMC](https://svalinn.github.io/DAGMC/) (Direct Accelerated Geometry Monte Carlo) enables the use of CAD-based geometry in Monte Carlo particle transport codes such as OpenMC.
+To use DAGMC geometry with OpenMC, a CAD model must first be converted to the DAGMC format (`.h5m`) using [Coreform Cubit](https://coreform.com/products/coreform-cubit/).
+The following resources provide step-by-step guidance on preparing and exporting DAGMC geometry:
+
+- [Coreform Cubit DAGMC Tutorial](https://coreform.com/coreform-cubit-tutorials/tutorial_1/) — Official Coreform tutorial on model preparation for DAGMC.
+- [DAGMC Model Preparation and Export Tutorial (Forum)](https://forum.coreform.com/t/coreform-dagmc-model-preparation-and-export-tutorial/2073) — Community tutorial on the Coreform forum covering the full DAGMC export workflow.
+- [Video: DAGMC Geometry Preparation with Coreform Cubit](https://youtu.be/mSXP1o3VXps) — Video walkthrough of the geometry preparation process.
+- [Video: CAD to DAGMC Workflow](https://youtu.be/2TzgTQidfwk) — Video tutorial on the complete CAD-to-DAGMC conversion pipeline.
+
+### Preparing DAGMC Geometry for OpenMC Tally Mesh Filter
+Volume meshes from many types (for example, GMSH, EXODUS, VTK, etc.) can be converted to DAGMC format (`.h5m`) using `mbconvert` which is part of DAGMC.
+
